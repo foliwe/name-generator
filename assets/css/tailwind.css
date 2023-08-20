@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    @apply bg-stone-200;
+    @apply text-stone-500;
+    
+}
+
+h1{
+    @apply text-stone-700 text-3xl
+}
+
+h2{
+    @apply text-stone-700 text-2xl
+}
+
