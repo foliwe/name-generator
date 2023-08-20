@@ -4,10 +4,10 @@
     <div class="bg-stone-50 col-span-2 rounded-xl w-[800px]">
 
         <div class="header text-center bg-stone-100 mb-10 text-stone-700">
-        <h1 class="text-5xl pt-7">Baby Name Generator</h1>
+        <h1 class="text-5xl pt-7">African Names Generator</h1>
         <p class="py-5">Choose your options and click the "Find Names" button Below</p>
         </div>
-        <div class="bg-white pb-6">
+        <div class="bg-white pb-6"> 
 
           <div class="gender-container flex flex-col justify-between items-center py-5 gap-3">
             <h1 class="text-3xl">1 Choose a gender</h1>
@@ -87,10 +87,12 @@
             </div>
           </div>
 
-          <div class="flex justify-center"> 
+          <div class="flex justify-center items-center gap-2"> 
               <button class="bg-sky-400 text-white p-2 rounded-xl w-1/3"
               @click="computeSelectedNames"
               > Find Names</button>
+
+              <span class="text-red-700 hover:cursor-pointer" @click="clearnames"> Clear form</span>
           </div>
 
           <!-- <div class="flex justify-center my-4">
@@ -144,5 +146,14 @@ const computeSelectedNames = () => {
                            Selectednames.value = filterNames.map( name => {
                             return name.name
                            })
+}
+
+const clearnames = () => {
+  options.gender = ""
+  options.popularity = ""
+  options.length = ""
+  Selectednames.value = []
+  
+  
 }
 </script>
