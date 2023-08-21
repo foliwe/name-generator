@@ -1,12 +1,16 @@
 <template>
-  <section class="w-8/12 mx-auto h-screen grid grid-cols-3 gap-6 place-content-center">
+  <section class="mx-auto h-screen grid md:grid-cols-3 gap-6 place-content-center p-3 md:w-[1200px]">
 
-    <div class="bg-stone-50 col-span-2 rounded-xl w-[800px]">
-
-        <div class="header text-center bg-stone-100 mb-10 text-stone-700">
-        <h1 class="text-5xl pt-7">African Names Generator</h1>
-        <p class="py-5">Choose your options and click the "Find Names" button Below</p>
+   
+    <div class=" bg-white p-5 md:col-span-3">
+      <div class="header text-center  text-stone-700">
+        <h1 class="text-3xl pt-7">African Names Generator</h1>
+        <p class="py-3">Choose your options and click the "Find Names" button Below</p>
         </div>
+    </div>
+    <div class="bg-stone-50 md:col-span-2 rounded-xl ">
+
+        
         <div class="bg-white pb-6"> 
 
           <div class="gender-container flex flex-col justify-between items-center py-5 gap-3">
@@ -20,14 +24,14 @@
 
                 <button 
                   class="border border-indigo-500 p-1 w-20 font-bold"
-                  :class="{'bg-emerald-600 text-white': options.gender === Gender.UNISEX}" 
+                  :class="{'bg-sky-400 text-white': options.gender === Gender.UNISEX}" 
                   @click="options.gender = Gender.UNISEX">
                   Unisex
                 </button>
 
                 <button 
                   class="border border-indigo-500 p-1 rounded-r-lg w-20  font-bold"
-                  :class="{'bg-fuchsia-700 text-white': options.gender === Gender.GIRL}" 
+                  :class="{'bg-sky-400 text-white': options.gender === Gender.GIRL}" 
                   @click="options.gender = Gender.GIRL">
                   Girl
                 </button>
@@ -40,46 +44,46 @@
 
                 <button 
                   class="border border-indigo-500 p-1 rounded-l-lg w-20  font-bold"
-                  :class="{'bg-green-400 text-white': options.popularity === Popularity.TRENDY}"
+                  :class="{'bg-sky-400 text-white': options.popularity === Popularity.TRENDY}"
                   @click="options.popularity = Popularity.TRENDY">
                   Trendy
               </button>
               <button 
               class="border border-indigo-500 p-1 rounded-r-lg w-20  font-bold"
-              :class="{'bg-green-400 text-white': options.popularity === Popularity.UNIQUE}"
+              :class="{'bg-sky-400 text-white': options.popularity === Popularity.UNIQUE}"
               @click="options.popularity = Popularity.UNIQUE">
               unique</button>
             </div>
           </div>
 
           <div class="gender-container flex flex-col justify-between items-center py-5 gap-3">
-            <h2 class=""> 3 Choose Name Length</h2>
+            <h2 class=""> 3 Choose Name's Length</h2>
             <div class="genders flex">
 
               <button 
               class="border border-indigo-500 p-1 rounded-l-lg w-20 font-bold"
-              :class="{'bg-red-400 text-white': options.length === Length.ALL}"
+              :class="{'bg-sky-500 text-white': options.length === Length.ALL}"
               @click="options.length = Length.ALL">
               All
             </button>
 
               <button 
                 class="border border-indigo-500 p-1 border-x-blue -6000 w-20 font-bold"
-                :class="{'bg-red-400 text-white': options.length === Length.LONG}"
+                :class="{'bg-sky-500 text-white': options.length === Length.LONG}"
                 @click="options.length = Length.LONG">
                 Long
               </button>
 
               <button 
                 class="border border-indigo-500 p-1 w-20 font-bold"
-                :class="{'bg-red-400 text-white': options.length === Length.MEDIUM}"
+                :class="{'bg-sky-500 text-white': options.length === Length.MEDIUM}"
                 @click="options.length = Length.MEDIUM">
                 Medium
               </button>
 
               <button 
                 class="border border-indigo-500 p-1 rounded-r-lg w-20 font-bold"
-                :class="{'bg-red-400 text-white': options.length === Length.SHORT}"
+                :class="{'bg-sky-500 text-white': options.length === Length.SHORT}"
                 @click="options.length = Length.SHORT">
                 Short
               </button>
@@ -88,7 +92,7 @@
           </div>
 
           <div class="flex justify-center items-center gap-2"> 
-              <button class="bg-sky-400 text-white p-2 rounded-xl w-1/3"
+              <button class="bg-sky-700 text-white p-2 rounded-xl w-1/3"
               @click="computeSelectedNames"
               > Find Names</button>
 
@@ -103,22 +107,23 @@
 
        
     </div>
-      <div class="">
-        <div class=" flex justify-center items-center gap-3 bg-stone-100 text-stone-700 py-7">
-          <h1>Results</h1>
-          <span class="bg-teal-300 text-center rounded-full p-1 w-8 h-8">{{ Selectednames.length }}</span>
-        </div>
 
-        <div class="bg-white">
-            <div class="" v-for="name in Selectednames" :key="name">
-              <div class="flex justify-between items-center p-3 bg-stone-300 my-1 text-blue-600 font-semibold">
-              <p>{{ name }}</p>
-              <span> <IconsLove /> </span>
-              </div>
-             
-            </div>
-        </div>
+    <div class="md:pb-10">
+      <div class=" flex justify-center items-center gap-3 bg-stone-100 text-stone-700 py-7">
+        <h1>Results</h1>
+        <span class="bg-teal-300 text-center rounded-full p-1 w-8 h-8">{{ Selectednames.length }}</span>
       </div>
+
+      <div class="bg-white">
+          <div class="" v-for="name in Selectednames" :key="name">
+            <div class="flex justify-between items-center p-3 bg-stone-300 my-1 text-blue-600 font-semibold">
+            <p>{{ name }}</p>
+            <span> <IconsLove /> </span>
+            </div>
+            
+          </div>
+      </div>
+    </div>
 
   </section>
 </template>
