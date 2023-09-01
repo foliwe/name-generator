@@ -1,7 +1,28 @@
 <template>
+
+  <section class="movie">
+    <div v-auto-animate class="p-8 rounded-lg bg-neutral-900">
+      <h2 @click="isOpen = !isOpen" class="text-xl font-bold">
+        More information
+      </h2>
+      <p v-if="isOpen" class="py-8">
+        Super hidden Treasure
+      </p>
+    </div>
+  </section>
+
+<section>
+  <div ref="dropdown" class="dropdown">
+    <strong class="dropdown-label" @click="show = !show">
+      Click me to open!
+    </strong>
+    <p class="dropdown-content" v-if="show">Lorum ipsum...</p>
+  </div>
+</section>
+
   <section class="mx-auto h-screen grid md:grid-cols-3 gap-6 place-content-center p-3 md:w-[1200px]">
 
-   
+   <div class="">{{ $router.currentRoute.value!.matched[0]['components']!.default['name'] }}</div>
     <div class=" bg-white p-5 md:col-span-3">
       <div class="header text-center  text-stone-700">
         <h1 class="text-3xl pt-7">African Names Generator</h1>
@@ -131,9 +152,22 @@
 <script setup lang="ts">
 import {Gender, Popularity, Length, names } from '@/data'
 
+import autoAnimate from "@formkit/auto-animate"
+
+const dropdown = ref() // we need a DOM node
+const show = ref(false)
+
+const isOpen = ref(false)
+
 const Selectednames = ref<string[]>([
 
 ]);
+
+const rt = useRoute()
+
+const routey = rt.params.pageName
+
+console.log(routey);
 
 const options = reactive({
 gender: "",
